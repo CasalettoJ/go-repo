@@ -1,4 +1,4 @@
-DIRS := 01
+DIRS := 01 02
 SOURCES = $(wildcard $@/*.go)
 
 DEP_FILE := Gopkg.lock
@@ -13,5 +13,8 @@ dep: $(DEP_FILE)
 
 $(DIRS):
 	go build -o bin/$@ $(SOURCES)
+	if [ -d "$@/assets" ]; then \
+		cp -R $@/assets/ bin/assets/; \
+    fi;
 
 .PHONY: build $(DIRS) dep
