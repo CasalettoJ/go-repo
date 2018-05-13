@@ -28,7 +28,7 @@ func setupWindow() error {
 
 func loadMedia() error {
 	var err error
-	image, err = sdl.LoadBMP("./assets/02water.bmp")
+	image, err = sdl.LoadBMP("assets/02water.bmp")
 	return err
 }
 
@@ -50,7 +50,9 @@ func main() {
 	defer window.Destroy()
 	defer sdl.Quit()
 
-	err := screen.Blit(nil, image, nil)
+	screen.FillRect(nil, 0)
+	window.UpdateSurface()
+	err := image.Blit(nil, screen, nil)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to blit image: %s\n", err)
 		os.Exit(1)
