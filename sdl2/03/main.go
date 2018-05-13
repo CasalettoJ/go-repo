@@ -28,8 +28,29 @@ func setupWindow() error {
 
 func loadMedia() error {
 	var err error
-	image, err = sdl.LoadBMP("assets/02water.bmp")
+	image, err = sdl.LoadBMP("assets/03drgn.bmp")
 	return err
+}
+
+func run() {
+	var e sdl.Event
+	for {
+		for e = sdl.PollEvent(); e != nil; e = sdl.PollEvent() {
+			switch e.(type) {
+			case *sdl.QuitEvent:
+				return
+			default:
+				fmt.Printf("event %+v\n", e)
+			}
+		}
+		screen.FillRect(nil, 0)
+		err := image.Blit(nil, screen, nil)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Unable to blit image: %s\n", err)
+			os.Exit(1)
+		}
+		window.UpdateSurface()
+	}
 }
 
 func init() {
@@ -48,15 +69,7 @@ func init() {
 
 func main() {
 	defer window.Destroy()
-	defer sdl.Quit()
-
-	screen.FillRect(nil, 0)
-	err := image.Blit(nil, screen, nil)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Unable to blit image: %s\n", err)
-		os.Exit(1)
-	}
 	defer image.Free()
-	window.UpdateSurface()
-	sdl.Delay(5000)
+	defer sdl.Quit()
+	run()
 }

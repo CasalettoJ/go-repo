@@ -1,4 +1,4 @@
-DIRS := 01 02
+DIRS := 01 02 03
 SOURCES = $(wildcard $@/*.go)
 
 DEP_FILE := Gopkg.lock
