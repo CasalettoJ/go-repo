@@ -1,4 +1,4 @@
-DIRS := 01 02 03
+DIRS := 01 02 03 04
 SOURCES = $(wildcard $@/*.go)
 
 DEP_FILE := Gopkg.lock
@@ -17,4 +17,7 @@ $(DIRS):
 		cp -R $@/assets/ bin/assets/; \
     fi;
 
-.PHONY: build $(DIRS) dep
+clean:
+	rm -rf bin/
+
+.PHONY: build $(DIRS) dep clean

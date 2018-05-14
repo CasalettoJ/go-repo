@@ -21,7 +21,7 @@ var (
 
 func setupWindow() error {
 	err := sdl.Init(sdl.INIT_EVERYTHING)
-	window, err = sdl.CreateWindow("Title", sdl.WINDOWPOS_UNDEFINED, sdl.WINDOWPOS_UNDEFINED, screenWidth, screenHeight, sdl.WINDOW_SHOWN)
+	window, err = sdl.CreateWindow("Event Programming", sdl.WINDOWPOS_UNDEFINED, sdl.WINDOWPOS_UNDEFINED, screenWidth, screenHeight, sdl.WINDOW_SHOWN)
 	screen, err = window.GetSurface()
 	return err
 }
