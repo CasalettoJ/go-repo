@@ -75,6 +75,7 @@ func run() {
 func close() {
 	pngSurface.Free()
 	window.Destroy()
+	img.Quit()
 	sdl.Quit()
 }
 
