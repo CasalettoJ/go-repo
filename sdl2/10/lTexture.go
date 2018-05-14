@@ -17,6 +17,8 @@ func (l *LTexture) Free() error {
 	if l.mTexture != nil {
 		if err := l.mTexture.Destroy(); err != nil {
 			l.mTexture = nil
+			l.mWidth = 0
+			l.mHeight = 0
 			return err
 		}
 	}
