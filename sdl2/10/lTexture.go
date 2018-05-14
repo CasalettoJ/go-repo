@@ -65,13 +65,13 @@ func (l *LTexture) Render(x, y int32) error {
 	return renderer.Copy(l.mTexture, nil, &renderQuad)
 }
 
-// GetHeight returns the height of the LTexture
-func (l *LTexture) GetHeight() int32 {
+// Height returns the height of the LTexture
+func (l *LTexture) Height() int32 {
 	return l.mHeight
 }
 
-// GetWidth returns the width of the LTexture
-func (l *LTexture) GetWidth() int32 {
+// Width returns the width of the LTexture
+func (l *LTexture) Width() int32 {
 	return l.mWidth
 }
 

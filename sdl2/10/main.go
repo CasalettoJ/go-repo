@@ -77,12 +77,12 @@ func run() error {
 		}
 
 		// Render background texture to screen
-		if err := background.Render((screenWidth/2)-(background.GetWidth()/2), (screenHeight/2)-(background.GetHeight()/2)); err != nil {
+		if err := background.Render((screenWidth/2)-(background.Width()/2), (screenHeight/2)-(background.Height()/2)); err != nil {
 			return err
 		}
 
 		// Render sprite to screen
-		if err := sprite.Render((screenWidth/2)-(sprite.GetWidth()/2), (screenHeight/2)-(sprite.GetHeight()/2)); err != nil {
+		if err := sprite.Render((screenWidth/2)-(sprite.Width()/2), (screenHeight/2)-(sprite.Height()/2)); err != nil {
 			return err
 		}
 
